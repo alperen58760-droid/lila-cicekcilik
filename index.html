@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6e397d">
+  <meta name="description" content="Lila Çiçekçilik'ten taze buketler ve özel tasarım çiçekler. Sevdiklerinize aynı gün teslimatla mutluluk gönderin.">
+  <title>Lila Çiçekçilik | Mutluluğu çiçeklerle paylaşın</title>
+  <link rel="preconnect" href="https://www.lilacicekcilik.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="announcement">
+    <span class="announcement__sparkle" aria-hidden="true">✦</span>
+    Sevdiklerinize bugün küçük bir mutluluk gönderin
+    <a href="#urunler">Çiçekleri keşfedin <span aria-hidden="true">→</span></a>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#" aria-label="Lila Çiçekçilik ana sayfa">
+        <img src="https://www.lilacicekcilik.com/lila-cicekcilik/assets/images/logo_1753534312.png?v=1762045611" alt="Lila Çiçekçilik">
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span class="menu-toggle__icon" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="sr-only">Menüyü aç</span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Ana menü">
+        <a class="nav-link nav-link--active" href="#">Ana Sayfa</a>
+        <a class="nav-link" href="#urunler">Çiçekler</a>
+        <a class="nav-link" href="#hikayemiz">Hikâyemiz</a>
+        <a class="nav-link" href="#iletisim">İletişim</a>
+      </nav>
+
+      <div class="header-actions">
+        <label class="search-box">
+          <span class="sr-only">Ürünlerde ara</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 4.5 4.5"></path></svg>
+          <input id="product-search" type="search" placeholder="Çiçek ara..." autocomplete="off">
+        </label>
+        <button class="cart-button" id="open-cart" type="button" aria-label="Sepeti aç">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.4a2 2 0 0 0 1.9-1.4L21 8H6"></path><circle cx="9.5" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg>
+          <span class="cart-button__label">Sepetim</span>
+          <span class="cart-count" id="cart-count" aria-live="polite">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <span class="eyebrow"><span aria-hidden="true">✿</span> Her anın en güzel eşlikçisi</span>
+        <h1 id="hero-title">Bir buket çiçek,<br><em>bin güzel his.</em></h1>
+        <p>Taze çiçekler, özenle hazırlanan buketler ve sevdiklerinize uzanan sıcacık bir “iyi ki”.</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#urunler">Buketleri keşfet <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="https://wa.me/905521142797?text=Merhaba%2C%20%C3%A7i%C3%A7ek%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" rel="noreferrer">Bize danışın <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-note">
+          <span class="hero-note__icon" aria-hidden="true">✦</span>
+          <span><strong>Bugün teslimat</strong><small>Gününüzü güzelleştirecek taptaze çiçekler</small></span>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <img class="hero__image" src="https://www.lilacicekcilik.com/lila-cicekcilik/uploads/products/68873a1f536c3.jpg" alt="Pembe güller ve kelebek detaylarıyla hazırlanmış özel tasarım buket" fetchpriority="high">
+        <div class="hero-sticker" aria-label="Sevgiyle hazırlandı">
+          <span aria-hidden="true">✿</span>
+          <span>Sevgiyle<br>hazırlandı</span>
+        </div>
+        <div class="hero-caption"><span class="hero-caption__dot"></span> Her bukette taze bir başlangıç</div>
+      </div>
+      <div class="hero__decoration hero__decoration--one" aria-hidden="true">✳</div>
+      <div class="hero__decoration hero__decoration--two" aria-hidden="true">✿</div>
+    </section>
+
+    <section class="benefits" aria-label="Hizmet avantajları">
+      <div class="benefit">
+        <span class="benefit__icon" aria-hidden="true">✿</span>
+        <span><strong>Taptaze çiçekler</strong><small>Her gün özenle seçilir</small></span>
+      </div>
+      <div class="benefit">
+        <span class="benefit__icon" aria-hidden="true">⌁</span>
+        <span><strong>Aynı gün teslimat</strong><small>Mutluluğu bekletmeyin</small></span>
+      </div>
+      <div class="benefit">
+        <span class="benefit__icon" aria-hidden="true">♡</span>
+        <span><strong>Özenli hazırlık</strong><small>Her detayında sevgi var</small></span>
+      </div>
+      <div class="benefit">
+        <span class="benefit__icon" aria-hidden="true">☏</span>
+        <span><strong>Size özel destek</strong><small>Siparişinizde yanınızdayız</small></span>
+      </div>
+    </section>
+
+    <section class="products-section section-wrap" id="urunler" aria-labelledby="products-title">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Sevginizi anlatmanın en güzel yolu</span>
+          <h2 id="products-title">Bugünün <em>favorileri</em></h2>
+        </div>
+        <a class="text-link section-heading__link" href="https://www.lilacicekcilik.com/lila-cicekcilik/" target="_blank" rel="noreferrer">Tüm ürünler <span aria-hidden="true">↗</span></a>
+      </div>
+
+      <div class="filter-row" role="group" aria-label="Ürün kategorileri">
+        <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">Tümü</button>
+        <button class="filter-chip" type="button" data-filter="buket" aria-pressed="false">Buketler</button>
+        <button class="filter-chip" type="button" data-filter="hediye" aria-pressed="false">Tatlı sürprizler</button>
+        <button class="filter-chip" type="button" data-filter="ozel" aria-pressed="false">Özel tasarım</button>
+      </div>
+
+      <div class="product-grid" id="product-grid">
+        <article class="product-card" data-category="buket" data-name="Krem Rengi Gül Detaylı Gerçek Aynalı Özel Gün Buketi">
+          <a class="product-card__image" href="https://www.lilacicekcilik.com/lila-cicekcilik/product.php?slug=krem-rengi-gul-detayli-gercek-aynali-ozel-gun-buketi" target="_blank" rel="noreferrer" aria-label="Krem Rengi Gül Detaylı Gerçek Aynalı Özel Gün Buketi ürününü incele">
+            <img src="https://www.lilacicekcilik.com/lila-cicekcilik/uploads/products/689aff4d24e61.jpg" alt="Krem rengi güllerle hazırlanmış özel gün buketi" loading="lazy">
+            <span class="product-badge">Bugün teslimat</span>
+          </a>
+          <div class="product-card__body">
+            <span class="product-card__type">Özel gün buketi</span>
+            <h3>Krem Rengi Gül Detaylı Gerçek Aynalı Özel Gün Buketi</h3>
+            <div class="product-card__bottom"><strong>1.999 TL</strong><button class="add-button" type="button" data-product="krem-buket">Sepete ekle <span aria-hidden="true">+</span></button></div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="hediye" data-name="40 cm Beyaz Renk Yumuşacık Sevimli Peluş Ayıcık">
+          <a class="product-card__image" href="https://www.lilacicekcilik.com/lila-cicekcilik/product.php?slug=40-cm-beyaz-renk-yumusacik-sevimli-pelus-ayicik" target="_blank" rel="noreferrer" aria-label="Beyaz peluş ayıcık ürününü incele">
+            <img src="https://www.lilacicekcilik.com/lila-cicekcilik/uploads/products/689afed34e736.jpg" alt="Kırmızı kurdeleli beyaz peluş ayıcık" loading="lazy">
+            <span class="product-badge">Bugün teslimat</span>
+          </a>
+          <div class="product-card__body">
+            <span class="product-card__type">Sevimli sürpriz</span>
+            <h3>40 cm Beyaz Renk Yumuşacık Sevimli Peluş Ayıcık</h3>
+            <div class="product-card__bottom"><strong>999 TL</strong><button class="add-button" type="button" data-product="beyaz-ayicik">Sepete ekle <span aria-hidden="true">+</span></button></div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="hediye" data-name="Labubu Monster Kutulu Sürpriz Oyuncak Karma Renk">
+          <a class="product-card__image" href="https://www.lilacicekcilik.com/lila-cicekcilik/product.php?slug=labubu-monster-kutulu-supriz-oyuncak-karma-renk" target="_blank" rel="noreferrer" aria-label="Labubu Monster kutulu sürpriz oyuncağı incele">
+            <img src="https://www.lilacicekcilik.com/lila-cicekcilik/uploads/products/689afe69d116b.jpg" alt="Renkli kutuda sürpriz oyuncak" loading="lazy">
+            <span class="product-badge">Bugün teslimat</span>
+          </a>
+          <div class="product-card__body">
+            <span class="product-card__type">Renkli sürpriz</span>
+            <h3>Labubu Monster Kutulu Sürpriz Oyuncak Karma Renk</h3>
+            <div class="product-card__bottom"><strong>799 TL</strong><button class="add-button" type="button" data-product="labubu">Sepete ekle <span aria-hidden="true">+</span></button></div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="hediye" data-name="40 cm Koyu Kahve Yumuşacık Sevimli Peluş Ayıcık">
+          <a class="product-card__image" href="https://www.lilacicekcilik.com/lila-cicekcilik/product.php?slug=40-cm-koyu-kahve-yumusacik-sevimli-pelus-ayicik" target="_blank" rel="noreferrer" aria-label="Koyu kahve peluş ayıcık ürününü incele">
+            <img src="https://www.lilacicekcilik.com/lila-cicekcilik/uploads/products/689afb7604470.jpg" alt="Koyu kahverengi peluş ayıcık" loading="lazy">
+            <span class="product-badge">Bugün teslimat</span>
+          </a>
+          <div class="product-card__body">
+            <span class="product-card__type">Sevimli sürpriz</span>
+            <h3>40 cm Koyu Kahve Yumuşacık Sevimli Peluş Ayıcık</h3>
+            <div class="product-card__bottom"><strong>1.499 TL</strong><button class="add-button" type="button" data-product="kahve-ayicik">Sepete ekle <span aria-hidden="true">+</span></button></div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="ozel buket" data-name="Sevdiklerinize Özel Işıklı Renkli Kelebek Buketi Pembe">
+          <a class="product-card__image" href="https://www.lilacicekcilik.com/lila-cicekcilik/product.php?slug=sevdiklerinize-ozel-isikli-renkli-kelebek-buketi-pembe" target="_blank" rel="noreferrer" aria-label="Pembe ışıklı kelebek buketi ürününü incele">
+            <img src="https://www.lilacicekcilik.com/lila-cicekcilik/uploads/products/68873a1f536c3.jpg" alt="Pembe çiçekler ve kelebek detaylarıyla hazırlanmış buket" loading="lazy">
+            <span class="product-badge">Bugün teslimat</span>
+          </a>
+          <div class="product-card__body">
+            <span class="product-card__type">Işıklı kelebek buketi</span>
+            <h3>Sevdiklerinize Özel Işıklı Renkli Kelebek Buketi (Pembe)</h3>
+            <div class="product-card__bottom"><strong>2.299 TL</strong><button class="add-button" type="button" data-product="pembe-kelebek">Sepete ekle <span aria-hidden="true">+</span></button></div>
+          </div>
+        </article>
+
+        <article class="product-card" data-category="ozel buket" data-name="Sevdiklerinize Özel Işıklı Güllü Renkli Kelebek Buketi Mavi">
+          <a class="product-card__image" href="https://www.lilacicekcilik.com/lila-cicekcilik/product.php?slug=sevdiklerinize-ozel-isikli-gullu-renkli-kelebek-buketi-mavi" target="_blank" rel="noreferrer" aria-label="Mavi ışıklı güllü kelebek buketi ürününü incele">
+            <img src="https://www.lilacicekcilik.com/lila-cicekcilik/uploads/products/688739c433762.jpg" alt="Mavi güllerle ve kelebek detaylarıyla hazırlanmış buket" loading="lazy">
+            <span class="product-badge">Bugün teslimat</span>
+          </a>
+          <div class="product-card__body">
+            <span class="product-card__type">Işıklı kelebek buketi</span>
+            <h3>Sevdiklerinize Özel Işıklı Güllü Renkli Kelebek Buketi (Mavi)</h3>
+            <div class="product-card__bottom"><strong>2.299 TL</strong><button class="add-button" type="button" data-product="mavi-kelebek">Sepete ekle <span aria-hidden="true">+</span></button></div>
+          </div>
+        </article>
+      </div>
+      <p class="empty-state" id="empty-state" hidden>Aramanıza uygun bir ürün bulamadık. Başka bir kelime deneyin.</p>
+    </section>
+
+    <section class="story-section" id="hikayemiz">
+      <div class="story-section__image">
+        <img src="https://www.lilacicekcilik.com/lila-cicekcilik/uploads/products/688738264205f.jpg" alt="Mavi kadife güllerle hazırlanmış isteme çiçeği" loading="lazy">
+        <span class="story-stamp" aria-hidden="true">Lila'dan<br>sevgiyle ♡</span>
+      </div>
+      <div class="story-section__copy">
+        <span class="eyebrow">Bir çiçekten çok daha fazlası</span>
+        <h2 id="story-title">Güzel anlara<br><em>çiçeklerle dokunun.</em></h2>
+        <p>Bir “seni düşünüyorum”, yeni bir başlangıç ya da sadece içinizden gelen bir tebessüm… Her buketi, o güzel ana yakışsın diye özenle hazırlıyoruz.</p>
+        <a class="button button--outline" href="https://wa.me/905521142797?text=Merhaba%2C%20%C3%A7i%C3%A7ek%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" rel="noreferrer">Siparişiniz için bize yazın <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="closing-banner" aria-label="Lila Çiçekçilik">
+      <span class="closing-banner__flower" aria-hidden="true">✿</span>
+      <p>Bugün kimin yüzünde bir gülümseme olsun?</p>
+      <a href="#urunler">Ona bir buket seç <span aria-hidden="true">→</span></a>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="iletisim">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="brand brand--footer" href="#" aria-label="Lila Çiçekçilik ana sayfa">
+          <img src="https://www.lilacicekcilik.com/lila-cicekcilik/assets/images/logo_1753534312.png?v=1762045611" alt="Lila Çiçekçilik">
+        </a>
+        <p>Sevdiklerinize çiçeklerle mutluluk gönderin. Her bukette biraz Lila, bolca sevgi var.</p>
+        <a class="footer-whatsapp" href="https://wa.me/905521142797?text=Merhaba%2C%20%C3%A7i%C3%A7ek%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" rel="noreferrer">WhatsApp'tan bize ulaşın <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="footer-links">
+        <h2>Keşfet</h2>
+        <a href="#urunler">Buketler</a>
+        <a href="#urunler">Özel tasarımlar</a>
+        <a href="#hikayemiz">Hikâyemiz</a>
+      </div>
+      <div class="footer-links">
+        <h2>Yardımcı olalım</h2>
+        <a href="https://wa.me/905521142797?text=Merhaba%2C%20%C3%A7i%C3%A7ek%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" rel="noreferrer">Sipariş ve teslimat</a>
+        <a href="https://wa.me/905521142797?text=Merhaba%2C%20%C3%A7i%C3%A7ek%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" rel="noreferrer">Bize ulaşın</a>
+      </div>
+      <div class="footer-note">
+        <span class="eyebrow">Bir mesaj kadar yakınız</span>
+        <h2>Sizin için buradayız.</h2>
+        <p>Siparişiniz ya da çiçek seçiminiz için WhatsApp'tan bize yazın.</p>
+        <a class="button button--light" href="https://wa.me/905521142797?text=Merhaba%2C%20%C3%A7i%C3%A7ek%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" rel="noreferrer">Mesaj gönder <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="current-year"></span> Lila Çiçekçilik. Tüm hakları saklıdır.</span>
+      <span>Sevgiyle hazırlandı <span aria-label="sevgiyle">♡</span></span>
+    </div>
+  </footer>
+
+  <a class="floating-whatsapp" href="https://wa.me/905521142797?text=Merhaba%2C%20%C3%A7i%C3%A7ek%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" rel="noreferrer" aria-label="WhatsApp'tan bize ulaşın">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4l-4.1 1.1 1.1-4A8.4 8.4 0 1 1 20.5 11.7Z"></path><path d="M8.8 8.1c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4 0 .6l-.5.7c-.2.2-.2.4-.1.6.4.7 1.1 1.4 1.9 1.9.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .3-.2 1.1-.7 1.5-.5.5-1.1.7-1.9.6-.8-.1-1.9-.5-3.1-1.5-1.4-1.2-2.3-2.7-2.5-3.6-.2-.9 0-1.7.7-2.4Z"></path></svg>
+  </a>
+
+  <dialog class="cart-dialog" id="cart-dialog" aria-labelledby="cart-title">
+    <div class="cart-dialog__header">
+      <div><span class="eyebrow">Lila Çiçekçilik</span><h2 id="cart-title">Sepetiniz</h2></div>
+      <button class="icon-button" id="close-cart" type="button" aria-label="Sepeti kapat">×</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <p class="cart-empty" id="cart-empty">Sepetiniz henüz boş. Sevdiklerinize güzel bir sürpriz seçin.</p>
+    <div class="cart-dialog__footer">
+      <div class="cart-total"><span>Toplam</span><strong id="cart-total">0 TL</strong></div>
+      <a class="button button--primary cart-checkout" id="cart-checkout" href="https://wa.me/905521142797" target="_blank" rel="noreferrer">WhatsApp ile sipariş ver <span aria-hidden="true">↗</span></a>
+    </div>
+  </dialog>
+</body>
+</html>
