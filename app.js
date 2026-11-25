@@ -9,7 +9,13 @@ const cartItems = document.querySelector("#cart-items");
 const cartCount = document.querySelector("#cart-count");
 const cartTotal = document.querySelector("#cart-total");
 const cartEmpty = document.querySelector("#cart-empty");
-const checkoutLink = document.querySelector("#cart-checkout");
+const orderForm = document.querySelector("#order-form");
+const deliveryDateInput = document.querySelector("#delivery-date");
+const deliveryTimeInput = document.querySelector("#delivery-time");
+const deliveryAddressInput = document.querySelector("#delivery-address");
+const giftMessageInput = document.querySelector("#gift-message");
+const checkoutButton = document.querySelector("#cart-checkout");
+const cartStorageKey = "lila-cicekcilik-cart";
 
 const products = {
   "krem-buket": { name: "Krem Rengi Gül Detaylı Gerçek Aynalı Özel Gün Buketi", price: 1999 },
@@ -20,7 +26,45 @@ const products = {
   "mavi-kelebek": { name: "Işıklı Güllü Renkli Kelebek Buketi (Mavi)", price: 2299 }
 };
 
-const cart = new Map();
+function loadCart() {
+  const savedCart = localStorage.getItem(cartStorageKey);
+  if (!savedCart) return new Map();
+
+  let savedItems;
+  try {
+    savedItems = JSON.parse(savedCart);
+  } catch (error) {
+    console.error("Kaydedilmiş sepet okunamadı.", error);
+    window.alert("Sepet kaydı okunamadı. Boş bir sepetle devam edebilirsiniz.");
+    localStorage.removeItem(cartStorageKey);
+    return new Map();
+  }
+
+  if (!Array.isArray(savedItems)) {
+    console.error("Kaydedilmiş sepet beklenen formatta değil.");
+    localStorage.removeItem(cartStorageKey);
+    return new Map();
+  }
+
+  const restoredCart = new Map();
+  savedItems.forEach((item) => {
+    if (
+      !item
+      || typeof item.id !== "string"
+      || !Object.prototype.hasOwnProperty.call(products, item.id)
+      || !Number.isSafeInteger(item.quantity)
+      || item.quantity < 1
+    ) {
+      console.error("Geçersiz sepet kaydı atlandı.", item);
+      return;
+    }
+
+    restoredCart.set(item.id, { product: products[item.id], quantity: item.quantity });
+  });
+  return restoredCart;
+}
+
+const cart = loadCart();
 let activeFilter = "all";
 
 function formatPrice(price) {
@@ -52,6 +96,8 @@ function updateCart() {
   cartCount.textContent = String(itemCount);
   cartTotal.textContent = formatPrice(total);
   cartEmpty.hidden = itemCount > 0;
+  orderForm.hidden = itemCount === 0;
+  checkoutButton.disabled = itemCount === 0;
   cartItems.replaceChildren();
 
   cart.forEach(({ product, quantity }, id) => {
@@ -78,13 +124,8 @@ function updateCart() {
     cartItems.append(row);
   });
 
-  const orderLines = [...cart.values()]
-    .map(({ product, quantity }) => `${product.name} x${quantity} — ${formatPrice(product.price * quantity)}`)
-    .join("\n");
-  const message = orderLines
-    ? `Merhaba, sipariş vermek istiyorum:\n${orderLines}\nToplam: ${formatPrice(total)}`
-    : "Merhaba, çiçek siparişi vermek istiyorum.";
-  checkoutLink.href = `https://wa.me/905521142797?text=${encodeURIComponent(message)}`;
+  const savedItems = [...cart].map(([id, item]) => ({ id, quantity: item.quantity }));
+  localStorage.setItem(cartStorageKey, JSON.stringify(savedItems));
 }
 
 menuToggle.addEventListener("click", () => {
@@ -137,11 +178,52 @@ cartItems.addEventListener("click", (event) => {
   updateCart();
 });
 
+deliveryAddressInput.addEventListener("input", () => {
+  deliveryAddressInput.setCustomValidity("");
+});
+
+orderForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  if (cart.size === 0) return;
+
+  const address = deliveryAddressInput.value.trim();
+  deliveryAddressInput.setCustomValidity(address ? "" : "Lütfen teslimat adresini girin.");
+  if (!orderForm.reportValidity()) return;
+
+  const date = new Intl.DateTimeFormat("tr-TR", { dateStyle: "long" })
+    .format(new Date(`${deliveryDateInput.value}T00:00:00`));
+  const time = deliveryTimeInput.value || "Belirtilmedi";
+  const giftMessage = giftMessageInput.value.trim() || "Yok";
+  const orderLines = [...cart.values()]
+    .map(({ product, quantity }) => `${product.name} x${quantity} — ${formatPrice(product.price * quantity)}`)
+    .join("\n");
+  const total = [...cart.values()].reduce((sum, item) => sum + item.product.price * item.quantity, 0);
+  const message = [
+    "Merhaba, sipariş vermek istiyorum:",
+    orderLines,
+    `Toplam: ${formatPrice(total)}`,
+    `Teslimat tarihi: ${date}`,
+    `Tercih edilen saat: ${time}`,
+    `Teslimat adresi: ${address}`,
+    `Kart notu: ${giftMessage}`
+  ].join("\n");
+
+  window.open(
+    `https://wa.me/905521142797?text=${encodeURIComponent(message)}`,
+    "_blank",
+    "noopener,noreferrer"
+  );
+});
+
 document.querySelector("#open-cart").addEventListener("click", () => cartDialog.showModal());
 document.querySelector("#close-cart").addEventListener("click", () => cartDialog.close());
 cartDialog.addEventListener("click", (event) => {
   if (event.target === cartDialog) cartDialog.close();
 });
+
+const today = new Date();
+today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+deliveryDateInput.min = today.toISOString().slice(0, 10);
 
 document.querySelector("#current-year").textContent = String(new Date().getFullYear());
 updateCart();

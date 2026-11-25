@@ -256,8 +256,27 @@
     <div class="cart-items" id="cart-items"></div>
     <p class="cart-empty" id="cart-empty">Sepetiniz henüz boş. Sevdiklerinize güzel bir sürpriz seçin.</p>
     <div class="cart-dialog__footer">
-      <div class="cart-total"><span>Toplam</span><strong id="cart-total">0 TL</strong></div>
-      <a class="button button--primary cart-checkout" id="cart-checkout" href="https://wa.me/905521142797" target="_blank" rel="noreferrer">WhatsApp ile sipariş ver <span aria-hidden="true">↗</span></a>
+      <form class="order-form" id="order-form" hidden>
+        <div class="order-form__field">
+          <label for="delivery-date">Teslimat tarihi <span aria-hidden="true">*</span></label>
+          <input id="delivery-date" type="date" required>
+        </div>
+        <div class="order-form__field">
+          <label for="delivery-time">Tercih edilen saat <span class="order-form__optional">(isteğe bağlı)</span></label>
+          <input id="delivery-time" type="time">
+          <small>Saat tercihiniz mağaza tarafından teyit edilir.</small>
+        </div>
+        <div class="order-form__field">
+          <label for="delivery-address">Teslimat adresi <span aria-hidden="true">*</span></label>
+          <textarea id="delivery-address" rows="2" maxlength="500" placeholder="İl, ilçe, mahalle, sokak ve bina bilgisi" autocomplete="street-address" required></textarea>
+        </div>
+        <div class="order-form__field">
+          <label for="gift-message">Kart notu <span class="order-form__optional">(isteğe bağlı)</span></label>
+          <textarea id="gift-message" rows="2" maxlength="300" placeholder="Hediye kartına yazılacak mesaj"></textarea>
+        </div>
+        <div class="cart-total"><span>Toplam</span><strong id="cart-total">0 TL</strong></div>
+        <button class="button button--primary cart-checkout" id="cart-checkout" type="submit">WhatsApp ile sipariş ver <span aria-hidden="true">↗</span></button>
+      </form>
     </div>
   </dialog>
 </body>
